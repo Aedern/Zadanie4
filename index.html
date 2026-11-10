@@ -3,50 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 4 - Bootstrap</title>
-    <!-- Подключаем Bootstrap 5 CSS -->
+    <title>Задание 4 - Aedem</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Наши кастомные стили (если нужно что-то особенное) -->
+    <!-- Кастомный CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-wrapper">
 
-    <!-- ШАПКА -->
-    <header class="bg-dark text-white py-3">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start">
-                        <div class="bg-primary rounded-circle p-2 me-2" style="width: 50px; height: 50px;">
-                            <span class="d-flex align-items-center justify-content-center text-white fw-bold">ЛОГО</span>
-                        </div>
-                        <h1 class="h4 mb-0">Мой сайт КубГУ</h1>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <!-- МЕНЮ НАВИГАЦИИ -->
-                    <nav class="nav justify-content-center justify-content-md-end">
-                        <a href="#links" class="nav-link text-white bg-primary px-3 py-1 rounded me-2">Ссылки</a>
-                        <a href="#table-section" class="nav-link text-white bg-primary px-3 py-1 rounded me-2">Таблица</a>
-                        <a href="#form-section" class="nav-link text-white bg-primary px-3 py-1 rounded">Форма</a>
-                    </nav>
+    <!-- ШАПКА: лого слева, название по центру, меню справа -->
+    <header class="custom-header py-3">
+        <div class="container header-container">
+            
+            <!-- СЛЕВА: логотип -->
+            <div class="brand">
+                <div class="logo">
+                    <img src="logo.png" alt="Логотип">
                 </div>
             </div>
+            
+            <!-- ПО ЦЕНТРУ: название -->
+            <div class="site-info">
+                <h1 class="site-name mb-0">Мой сайт КубГУ</h1>
+            </div>
+            
+            <!-- СПРАВА: меню -->
+            <nav class="nav">
+                <a href="#links" class="btn btn-primary">Ссылки</a>
+                <a href="#table-section" class="btn btn-primary">Таблица</a>
+                <a href="#form-section" class="btn btn-primary">Форма</a>
+            </nav>
+            
         </div>
     </header>
+
+    <!-- ЯКОРЬ -->
+    <a id="top"></a>
 
     <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="container my-4">
 
-        <!-- ТАБЛИЦА (на мобильном выше благодаря order) -->
-        <section id="table-section" class="mb-4 order-1 order-md-2">
+        <!-- СПИСОК ССЫЛОК (order: 2 на мобильном, order-md: 2 на десктопе) -->
+        <section id="links" class="section links-section order-2 order-md-2 mb-4">
+            <h2 class="border-bottom border-primary pb-2 mb-3">Список гиперссылок</h2>
+            <div class="card p-3 bg-light">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="http://kubsu.ru/">Абсолютная ссылка (http)</a></li>
+                    <li class="mb-2"><a href="https://kubsu.ru/">Абсолютная ссылка (https)</a></li>
+                    <li class="mb-2">
+                        <a href="https://kubsu.ru/">
+                            <img src="kubgu.jpg" alt="Картинка-ссылка" width="100" class="rounded border">
+                        </a>
+                    </li>
+                    <li class="mb-2"><a href="/ru/struct/university">Сокращённая на внутреннюю</a></li>
+                    <li class="mb-2"><a href="/">Сокращённая на главную</a></li>
+                    <li class="mb-2"><a href="#top">На фрагмент страницы (наверх)</a></li>
+                    <li class="mb-2"><a href="page.html?a=1&b=2&c=3">С тремя параметрами</a></li>
+                    <li class="mb-2"><a href="page.html?id=5">С параметром id</a></li>
+                    <li class="mb-2"><a href="page.html">Относительная в текущем каталоге</a></li>
+                    <li class="mb-2"><a href="about/page.html">Относительная в about</a></li>
+                    <li class="mb-2"><a href="../page.html">На уровень выше</a></li>
+                    <li class="mb-2"><a href="../../page.html">Двумя уровнями выше</a></li>
+                    <li class="mb-2"><p>Контекстная <a href="https://kubsu.ru/">ссылка</a> в тексте</p></li>
+                    <li class="mb-2"><a href="https://kubsu.ru/ru/struct/university#content">На фрагмент стороннего сайта</a></li>
+                    <li class="mb-2">
+                        <p>Картинка с кликабельными областями:</p>
+                        <img src="map.png" alt="Карта" usemap="#map1" width="400" height="200" class="img-fluid">
+                        <map name="map1">
+                            <area shape="rect" coords="0,0,200,200" href="https://kubsu.ru/" alt="Прямоугольник">
+                            <area shape="circle" coords="300,100,80" href="https://kubsu.ru/ru/struct/university" alt="Круг">
+                        </map>
+                    </li>
+                    <li class="mb-2"><a href="">Пустая ссылка</a></li>
+                    <li class="mb-2"><a>Ссылка без href</a></li>
+                    <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow">Ссылка nofollow</a></li>
+                    <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow noopener">Ссылка noindex</a></li>
+                    <li class="mb-2">
+                        <ol class="mb-0 ps-3">
+                            <li><a href="https://kubsu.ru/" title="Главная">Ссылка 1</a></li>
+                            <li><a href="https://kubsu.ru/ru/struct/university" title="О университете">Ссылка 2</a></li>
+                            <li><a href="https://kubsu.ru/ru/struct/faculties" title="Факультеты">Ссылка 3</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="ftp://ftp.example.com/file.txt">FTP ссылка</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ТАБЛИЦА (order: 1 - ПЕРВАЯ на всех экранах) -->
+        <section id="table-section" class="section table-section order-1 order-md-1 mb-4">
             <h2 class="border-bottom border-primary pb-2 mb-3">Таблица</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered">
                     <thead class="table-dark">
                         <tr>
                             <th>№</th>
-                            <th>Название</th>
+                            <th>Название предмета</th>
                             <th>Описание</th>
                             <th>Статус</th>
                         </tr>
@@ -54,37 +106,37 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td colspan="2" class="bg-info bg-opacity-10 fw-bold">Объединённая ячейка</td>
-                            <td>Изучено</td>
+                            <td colspan="2" class="bg-info bg-opacity-10 fw-bold">Объединённая ячейка (HTML + CSS)</td>
+                            <td><span class="badge bg-success">Изучено</span></td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td>HTML5</td>
-                            <td>Разметка</td>
-                            <td><span class="badge bg-success">Готово</span></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>CSS3</td>
-                            <td>Стили</td>
+                            <td>Веб-разработка</td>
+                            <td>Создание сайтов</td>
                             <td><span class="badge bg-primary">Активно</span></td>
                         </tr>
                         <tr>
+                            <td>3</td>
+                            <td>HTML5</td>
+                            <td>Разметка страниц</td>
+                            <td><span class="badge bg-success">Готово</span></td>
+                        </tr>
+                        <tr>
                             <td>4</td>
-                            <td>Bootstrap</td>
-                            <td>Фреймворк</td>
-                            <td><span class="badge bg-warning text-dark">Сейчас</span></td>
+                            <td>CSS3</td>
+                            <td>Стилизация</td>
+                            <td><span class="badge bg-warning text-dark">В процессе</span></td>
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td>Flexbox</td>
-                            <td>Расположение</td>
-                            <td><span class="badge bg-info text-dark">Изучается</span></td>
+                            <td>JavaScript</td>
+                            <td>Программирование</td>
+                            <td><span class="badge bg-info text-dark">Планируется</span></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>GitHub</td>
-                            <td>Хостинг</td>
+                            <td>Хостинг проектов</td>
                             <td><span class="badge bg-secondary">Используется</span></td>
                         </tr>
                     </tbody>
@@ -92,65 +144,34 @@
             </div>
         </section>
 
-        <!-- СПИСОК ССЫЛОК -->
-        <section id="links" class="mb-4 order-2 order-md-1">
-            <h2 class="border-bottom border-primary pb-2 mb-3">Список гиперссылок</h2>
-            <div class="card p-3 bg-light">
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="http://kubsu.ru/" class="text-decoration-none">🔗 Абсолютная ссылка (http)</a></li>
-                    <li class="mb-2"><a href="https://kubsu.ru/" class="text-decoration-none"> Абсолютная ссылка (https)</a></li>
-                    <li class="mb-2">
-                        <a href="https://kubsu.ru/">
-                            <img src="https://via.placeholder.com/100" alt="Картинка-ссылка" class="rounded border">
-                        </a>
-                    </li>
-                    <li class="mb-2"><a href="/" class="text-decoration-none">🔗 Сокращённая на главную</a></li>
-                    <li class="mb-2"><a href="#top" class="text-decoration-none"> На фрагмент страницы</a></li>
-                    <li class="mb-2"><a href="page.html?id=5" class="text-decoration-none">🔗 С параметром id</a></li>
-                    <li class="mb-2"><a href="page.html" class="text-decoration-none">🔗 Относительная ссылка</a></li>
-                    <li class="mb-2"><a href="about/page.html" class="text-decoration-none">🔗 В каталоге about</a></li>
-                    <li class="mb-2"><a href="../page.html" class="text-decoration-none">🔗 На уровень выше</a></li>
-                    <li class="mb-2">Контекстная <a href="https://kubsu.ru/" class="text-decoration-none">ссылка</a> в тексте</li>
-                    <li class="mb-2"><a href="" class="text-decoration-none">🔗 Пустая ссылка</a></li>
-                    <li class="mb-2"><a class="text-muted">🚫 Без href</a></li>
-                    <li class="mb-2"><a href="https://kubsu.ru/" rel="nofollow" class="text-decoration-none">🔗 Nofollow</a></li>
-                    <li class="mb-2">
-                        <ol class="mb-0 ps-3">
-                            <li class="mb-1"><a href="https://kubsu.ru/" title="Главная" class="text-decoration-none">Ссылка 1</a></li>
-                            <li><a href="https://kubsu.ru/ru/struct/university" title="О университете" class="text-decoration-none">Ссылка 2</a></li>
-                        </ol>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ФОРМА -->
-        <section id="form-section" class="mb-4 order-3">
+        <!-- ФОРМА (order: 3 - ВСЕГДА ТРЕТЬЯ) -->
+        <section id="form-section" class="section form-section order-3 order-md-3 mb-4">
             <h2 class="border-bottom border-primary pb-2 mb-3">Форма</h2>
             <div class="card p-4 bg-light">
-                <form>
+                <form action="#" method="post">
+                    
                     <div class="mb-3">
-                        <label for="fio" class="form-label fw-bold">ФИО</label>
+                        <label for="fio" class="form-label fw-bold">ФИО:</label>
                         <input type="text" class="form-control" id="fio" name="fio" placeholder="Иванов Иван Иванович">
                     </div>
 
                     <div class="mb-3">
-                        <label for="phone" class="form-label fw-bold">Телефон</label>
+                        <label for="phone" class="form-label fw-bold">Телефон:</label>
                         <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7 (999) 123-45-67">
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label fw-bold">E-mail</label>
+                        <label for="email" class="form-label fw-bold">E-mail:</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.ru">
                     </div>
 
                     <div class="mb-3">
-                        <label for="birthdate" class="form-label fw-bold">Дата рождения</label>
+                        <label for="birthdate" class="form-label fw-bold">Дата рождения:</label>
                         <input type="date" class="form-control" id="birthdate" name="birthdate">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold d-block">Пол</label>
+                        <label class="form-label fw-bold d-block">Пол:</label>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gender" id="male" value="male">
                             <label class="form-check-label" for="male">Мужской</label>
@@ -162,23 +183,24 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold d-block">Язык программирования</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="lang" value="Python" id="python">
-                            <label class="form-check-label" for="python">Python</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="lang" value="JavaScript" id="javascript">
-                            <label class="form-check-label" for="javascript">JavaScript</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="lang" value="PHP" id="php">
-                            <label class="form-check-label" for="php">PHP</label>
-                        </div>
+                        <label for="lang-select" class="form-label fw-bold">Любимый язык программирования (зажми Ctrl для выбора нескольких):</label>
+                        <select name="lang[]" id="lang-select" multiple size="6" class="form-select">
+                            <option value="Pascal">Pascal</option>
+                            <option value="C">C</option>
+                            <option value="C++">C++</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="Haskell">Haskell</option>
+                            <option value="Clojure">Clojure</option>
+                            <option value="Prolog">Prolog</option>
+                            <option value="Scala">Scala</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
-                        <label for="bio" class="form-label fw-bold">Биография</label>
+                        <label for="bio" class="form-label fw-bold">Биография:</label>
                         <textarea class="form-control" id="bio" name="bio" rows="5" placeholder="Расскажите о себе..."></textarea>
                     </div>
 
@@ -195,13 +217,13 @@
     </main>
 
     <!-- ПОДВАЛ -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <footer class="custom-footer py-3 mt-auto">
         <div class="container">
-            <p class="mb-0">(c) Aedem 2024. Задание 4 - Bootstrap</p>
+            <p class="mb-0 text-start">(c) Aedem 2024. Задание 4</p>
         </div>
     </footer>
 
-    <!-- Подключаем Bootstrap JS (необязательно, но полезно) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
