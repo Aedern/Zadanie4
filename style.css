@@ -1,0 +1,110 @@
+/* ========== ПРИЖАТИЕ ПОДВАЛА К НИЗУ ========== */
+html, body {
+    height: 100%;
+}
+
+body.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* ========== ШАПКА: ЛОГО СЛЕВА, НАЗВАНИЕ ПО ЦЕНТРУ, МЕНЮ СПРАВА ========== */
+.custom-header {
+    background-color: #dbe4f0;
+    border-bottom: 2px solid #a0b4cc;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;  /* Разносит по краям */
+    align-items: center;
+    max-width: 960px;
+}
+
+/* Логотип — слева */
+.brand {
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Название — по центру (занимает всё свободное место) */
+.site-info {
+    flex: 1;              /* КЛЮЧЕВОЕ! */
+    text-align: center;   /* Текст по центру */
+}
+
+.site-name {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* Меню — справа */
+.nav {
+    flex-shrink: 0;
+    display: flex;
+    gap: 10px;
+}
+
+/* ========== ПОДВАЛ: ТЕКСТ СЛЕВА ========== */
+.custom-footer {
+    background-color: #2c3e50;
+    color: white;
+    width: 100%;
+}
+
+/* ========== АДАПТИВНОСТЬ ШАПКИ ========== */
+@media (max-width: 767.98px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .site-info {
+        order: -1;  /* Название сверху на мобильном */
+    }
+    
+    .nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav .btn {
+        width: 100%;
+    }
+}
+
+/* ========== КНОПКА ФОРМЫ ========== */
+@media (min-width: 768px) {
+    .w-md-auto {
+        width: auto !important;
+    }
+}
+
+/* ========== ВЫБРАННЫЕ ЯЗЫКИ В SELECT ========== */
+.form-select option:checked {
+    background-color: #0d6efd;
+    color: white;
+}
